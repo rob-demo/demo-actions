@@ -14,18 +14,15 @@ jobs:
         result-encoding: string
         script: |                  
           const owner = context.repo.owner
-          const repo = context.repo.repo
+          const repo = context.repo.repo          
 
-          let commentBody = [
-              `:robot: New issue for testing the new issue labeler :high_voltage:`
-            ] 
+          let title =`:robot: New issue for testing the new issue labeler :high_voltage:`
+          console.log(`Creating new issue in repo [${owner}/${repo}] with title [$title]`)
 
           // create new issue
           await github.rest.issues.create({
             owner,
             repo,
-            title: commentBody.join(``)
-            body: commentBody.join('\n')
+            title
+            body: title
           });
-
-          return result
