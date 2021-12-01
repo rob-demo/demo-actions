@@ -23,6 +23,6 @@ jobs:
           await github.rest.issues.create({
             owner,
             repo,
-            title
+            title,
             body: title
           });
