@@ -17,7 +17,7 @@ jobs:
           const repo = context.repo.repo          
 
           let title =`:robot: New issue for testing the new issue labeler :high_voltage:`
-          console.log(`Creating new issue in repo [${owner}/${repo}] with title [$title]`)
+          console.log(`Creating new issue in repo [${owner}/${repo}] with title [${title}]`)
 
           // create new issue
           await github.rest.issues.create({
