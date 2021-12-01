@@ -7,7 +7,7 @@ jobs:
   create-new-issue:
     runs-on: ubuntu-latest
     steps:
-    - uses: peter-murray/workflow-application-token-action
+    - uses: peter-murray/workflow-application-token-action@014a6122936b0b05dd12ca3b1072c0b240ceaefc
       with:
         application_id: ${{ secrets.GH_APPLICATION_ID }}
         application_private_key: ${{ secrets.GH_APPLICATION_PRIVATE_KEY }}
