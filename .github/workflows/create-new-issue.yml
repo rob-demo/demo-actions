@@ -1,29 +1,31 @@
+name: Create new issue
+
 on:
   workflow_dispatch:
 
 jobs:
   create-new-issue:
-  runs-on: ubuntu-latest
-  steps:
-  - uses: actions/github-script@v5
-    name: Find action from issue
-    id: get-action
-    with:
-      result-encoding: string
-      script: |                  
-        const owner = context.repo.owner
-        const repo = context.repo.repo
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/github-script@v5
+      name: Find action from issue
+      id: get-action
+      with:
+        result-encoding: string
+        script: |                  
+          const owner = context.repo.owner
+          const repo = context.repo.repo
 
-        let commentBody = [
-            `:robot: New issue for testing the new issue labeler :high_voltage:`
-          ] 
+          let commentBody = [
+              `:robot: New issue for testing the new issue labeler :high_voltage:`
+            ] 
 
-        // create new issue
-        await github.rest.issues.create({
-          owner,
-          repo,
-          title: commentBody.join(``)
-          body: commentBody.join('\n')
-        });
+          // create new issue
+          await github.rest.issues.create({
+            owner,
+            repo,
+            title: commentBody.join(``)
+            body: commentBody.join('\n')
+          });
 
-        return result
+          return result
