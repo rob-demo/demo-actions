@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/github-script@v5
-      name: Find action from issue
+      name: Create new issue
       id: get-action
       with:
         result-encoding: string
