@@ -1,7 +1,7 @@
 on:
   push:
     paths:
-      - .github/workflows/do-not-trigger-to-ofen.yml
+      - .github/workflows/do-not-trigger-to-often.yml
 
 jobs:
   test:
