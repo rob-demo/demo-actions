@@ -2,7 +2,7 @@ on:
   push:
     paths:
       - .github/workflows/do-not-trigger-to-often.yml
-      - /src/often.js
+      - src/often.js
 
   workflow_dispatch:    
 
