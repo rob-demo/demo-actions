@@ -9,7 +9,7 @@ module.exports = async ({github, owner, repo, workflow_id}) => {
     const runs = await github.rest.actions.listWorkflowRuns({
         owner,
         repo,
-        workflow_id
+        workflow_id: workflow
     });
                 
     console.log(``)
