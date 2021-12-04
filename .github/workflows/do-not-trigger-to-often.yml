@@ -1,0 +1,13 @@
+on:
+  push:
+    paths:
+      - .github/workflows/do-not-trigger-to-ofen.yml
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "Hello world"
+          echo "Running from ${{ github.workflow }}"
+      
