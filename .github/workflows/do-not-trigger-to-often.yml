@@ -10,20 +10,21 @@ jobs:
       - run: |
           echo "Hello world"
           echo "Running from ${{ github.workflow }}"
+          
       - uses: actions/github-script@v5.0.0
         with:
           # The script to run
           script: |
             const owner = "rajbos"
             const repo = "demo-actions"
-            const workflow_id = ${{ github.workflow }}
+            const workflow_id = "${{ github.workflow }}"
             
             console.log(`Running on repo [${owner}/${repo}] with workflow_id: [${workflow_id}]`)
             
             const runs = await github.rest.actions.listWorkflowRuns({
               owner,
               repo,
-              workflow_id,
+              workflow_id
             });
             
-            console.log(`Found [${runs.Lenght}] workflow runs`)
+            console.log(`Found [${runs.Length}] workflow runs`)
