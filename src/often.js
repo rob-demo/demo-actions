@@ -1,4 +1,4 @@
-module.exports = ({github, owner, repo, workflow_id}) => {
+module.exports = async ({github, owner, repo, workflow_id}) => {
     
     const workflowParts = workflow_id.split('/')
     console.log(`${JSON.stringify(workflowParts)}`)

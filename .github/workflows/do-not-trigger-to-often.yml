@@ -24,6 +24,6 @@ jobs:
 
 
             const script = require('./src/often.js')
-            console.log(script({github, owner, repo, workflow_id}))
+            console.log(await script({github, owner, repo, workflow_id}))
 
             
