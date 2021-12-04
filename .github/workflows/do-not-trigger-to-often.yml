@@ -19,6 +19,7 @@ jobs:
             const repo = "demo-actions"
             const workflow_id = "${{ github.workflow }}"
             const workflowParts = workflow_id.split('/')
+            console.log(`${JSON.stringify(workflowParts)}`)
             const workflow = workflowParts[workflowParts.length-1]
             
             console.log(`Running on repo [${owner}/${repo}] with workflow_id: [${workflow}]`)
