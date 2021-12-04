@@ -18,19 +18,9 @@ jobs:
             const owner = "rajbos"
             const repo = "demo-actions"
             const workflow_id = "${{ github.workflow }}"
-            const workflowParts = workflow_id.split('/')
-            console.log(`${JSON.stringify(workflowParts)}`)
-            const workflow = workflowParts[workflowParts.length-1]
+
+
+            const script = require('.src/often.js')
+            console.log(script({github, owner, repo, workflow_id}))
+
             
-            console.log(`Running on repo [${owner}/${repo}] with workflow_id: [${workflow}]`)
-            
-            const runs = await github.rest.actions.listWorkflowRuns({
-              owner,
-              repo,
-              workflow_id
-            });
-                        
-            console.log(``)
-            console.log(`${JSON.stringify(runs)}`
-            console.log(``)
-            console.log(`Found [${runs.length}] workflow runs`)
