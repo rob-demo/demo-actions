@@ -20,7 +20,7 @@ jobs:
             
             console.log(`Running on repo [${owner}/${repo}] with workflow_id: [${workflow_id}]`)
             
-            const runs = await github..rest.actions.listWorkflowRuns({
+            const runs = await github.rest.actions.listWorkflowRuns({
               owner,
               repo,
               workflow_id,
