@@ -1,6 +1,8 @@
 on:
   workflow_dispatch:
   push:
+    paths:
+      - .github/workflows/docker-scan.yml
 jobs:
   docker-scan:
   runs-on: ubuntu-latest
