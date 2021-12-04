@@ -23,7 +23,7 @@ jobs:
             const workflow_id = "${{ github.workflow }}"
 
 
-            const script = require('/src/often.js')
+            const script = require('src/often.js')
             console.log(script({github, owner, repo, workflow_id}))
 
             
