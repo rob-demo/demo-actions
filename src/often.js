@@ -17,16 +17,16 @@ module.exports = async ({github, context, owner, repo, workflow_id}) => {
         console.log(`Start of the try call`)
         const creator = context.payload.sender.login
         console.log(`Creator: ${creator}`)
-        const runs = await github.rest.actions.listWorkflowRuns({
-            owner,
-            repo,
-            workflow_id: workflow
-        });
+        // const runs = await github.rest.actions.listWorkflowRuns({
+        //     owner,
+        //     repo,
+        //     workflow_id: workflow
+        // });
                     
-        console.log(``)
-        console.log(`${JSON.stringify(runs)}`)
-        console.log(``)
-        console.log(`Found [${runs.length}] workflow runs`)
+        // console.log(``)
+        // console.log(`${JSON.stringify(runs)}`)
+        // console.log(``)
+        // console.log(`Found [${runs.length}] workflow runs`)
     } catch (error) {
         console.log(`error: ${error}`)
     }
