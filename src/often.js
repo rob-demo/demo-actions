@@ -18,11 +18,16 @@ module.exports = async ({github, context, owner, repo, workflow}) => {
         console.log(`Start of the try call`)
         const creator = context.payload.sender.login
         console.log(`Creator: ${creator}`)
-        const runs = await github.rest.actions.listWorkflowRuns({
+        const runs = await github.rest.actions.listWorkflowRunsForRepo({
             owner,
-            repo,
-            workflow_id
+            repo
         });
+
+        // const runs = await github.rest.actions.listWorkflowRuns({
+        //     owner,
+        //     repo,
+        //     workflow_id
+        // });
                     
         console.log(``)
         console.log(`${JSON.stringify(runs)}`)
