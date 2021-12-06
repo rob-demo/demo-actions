@@ -8,11 +8,11 @@ module.exports = async ({github, owner, repo, workflow_id}) => {
     
     try {
         console.log(`Start of the try call`)
-        // const runs = await github.rest.actions.listWorkflowRuns({
-        //     owner,
-        //     repo,
-        //     workflow_id: workflow
-        // });
+        const runs = await github.rest.actions.listWorkflowRuns({
+            owner,
+            repo,
+            workflow_id: workflow
+        });
                     
         console.log(``)
         console.log(`${JSON.stringify(runs)}`)
