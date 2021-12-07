@@ -24,10 +24,12 @@ module.exports = async ({github, context, owner, repo, workflow}) => {
             repo,
             workflow_id
         });
-        // const runs = await github.rest.actions.listWorkflowRunsForRepo({
-        //     owner,
-        //     repo
-        // });
+        
+        const runs = await github.rest.actions.listWorkflowRunsForRepo({
+            owner,
+            repo
+        },
+        (response) => console.log(`Response: ${JSON.stringify(response)}`));
 
         // const runs = await github.rest.actions.listWorkflowRuns({
         //     owner,
