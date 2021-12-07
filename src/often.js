@@ -32,9 +32,9 @@ module.exports = async ({github, context, owner, repo, workflow}) => {
         //     (response) => console.log(`Response: ${JSON.stringify(response)}`)
         // )        
         // console.log(`Runs2: ${JSON.stringify(runs2)}`)
-        
+
         try {
-            const response = await github.paginate(
+            const response = await github.request(
                 "GET /repos/{owner}/{repo}/actions/runs",
                 {owner, repo}
             )        
