@@ -32,11 +32,16 @@ module.exports = async ({github, context, owner, repo, workflow}) => {
         //     (response) => console.log(`Response: ${JSON.stringify(response)}`)
         // )        
         // console.log(`Runs2: ${JSON.stringify(runs2)}`)
-        await github.paginate(
-            "GET /repos/{owner}/{repo}/actions/runs",
-            {owner, repo},
-            (response) => console.log(`Response: ${JSON.stringify(response)}`)
-        )
+        try {
+            const response = await github.paginate(
+                "GET /repos/{owner}/{repo}/actions/runs",
+                {owner, repo}
+            )        
+            console.log(`Response: ${JSON.stringify(response)}`)
+        }
+        catch(err) { 
+            console.log(`err: ${err}`)
+        }
 
         // const runs = await github.rest.actions.listWorkflowRuns({
         //     owner,
