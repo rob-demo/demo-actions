@@ -19,11 +19,18 @@ module.exports = async ({github, context, owner, repo, workflow}) => {
         const creator = context.payload.sender.login
         console.log(`Creator: ${creator}`)
 
-        const runs = await github.rest.actions.getWorkflow({
+        const octokit = require("@octokit/rest")({
+            log: console,
+          });
+        const runs = await octokit.rest.actions.getWorkflow({
             owner,
             repo,
             workflow_id
         });
+        console.log(``)
+        console.log(`Runs: ${JSON.stringify(runs)}`)
+        console.log(``)
+        console.log(`Found [${runs.length}] workflow runs`)
         
         // const runs2 = await github.rest.actions.listWorkflowRunsForRepo({
         //         owner,
@@ -34,7 +41,7 @@ module.exports = async ({github, context, owner, repo, workflow}) => {
         // console.log(`Runs2: ${JSON.stringify(runs2)}`)
 
         try {
-            const response = await github.request(
+            const response = await octokit.request(
                 "GET /repos/{owner}/{repo}/actions/runs",
                 {owner, repo}
             )        
@@ -50,10 +57,7 @@ module.exports = async ({github, context, owner, repo, workflow}) => {
         //     workflow_id
         // });
                     
-        console.log(``)
-        console.log(`Runs: ${JSON.stringify(runs)}`)
-        console.log(``)
-        console.log(`Found [${runs.length}] workflow runs`)
+        
         
     } catch (error) {
         console.log(`error: ${error}`)
