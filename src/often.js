@@ -25,7 +25,7 @@ module.exports = async ({github, context, owner, repo, workflow}) => {
             workflow_id
         });
         
-        const runs = await github.rest.actions.listWorkflowRunsForRepo({
+        const runs2 = await github.rest.actions.listWorkflowRunsForRepo({
             owner,
             repo
         },
