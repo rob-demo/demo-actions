@@ -25,10 +25,16 @@ module.exports = async ({github, context, owner, repo, workflow}) => {
             workflow_id
         });
         
-        const runs2 = await github.rest.actions.listWorkflowRunsForRepo({
-                owner,
-                repo
-            },
+        // const runs2 = await github.rest.actions.listWorkflowRunsForRepo({
+        //         owner,
+        //         repo
+        //     },
+        //     (response) => console.log(`Response: ${JSON.stringify(response)}`)
+        // )        
+        // console.log(`Runs2: ${JSON.stringify(runs2)}`)
+        await github.paginate(
+            "GET /repos/{owner}/{repo}/actions/runs",
+            {owner, repo},
             (response) => console.log(`Response: ${JSON.stringify(response)}`)
         )
 
@@ -43,7 +49,6 @@ module.exports = async ({github, context, owner, repo, workflow}) => {
         console.log(``)
         console.log(`Found [${runs.length}] workflow runs`)
         
-        console.log(`Runs2: ${JSON.stringify(runs2)}`)
     } catch (error) {
         console.log(`error: ${error}`)
     }
