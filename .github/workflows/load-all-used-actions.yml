@@ -12,6 +12,7 @@ jobs:
         id: load-actions
         with: 
           PAT: ${{ secrets.GITHUB_TOKEN }} # use an Access Token with correct permissions to view private repos if you need to
+          user: ${{ github.actor }}
 
       - shell: pwsh        
         name: Store json file
