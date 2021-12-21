@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
   push:
     paths: 
-      - ./github/workflows/self-hosted.yml
+      - .github/workflows/self-hosted.yml
 jobs:
   number1:
     runs-on: self-hosted
@@ -12,9 +12,7 @@ jobs:
        - run: echo "Hello world"
        
        - name: Checkout Git repo manually
-         shell: bash
          run: |
            mkdir npm-cli
            cd npm-cli
            git clone https://github.com/npm/cli.git
-           du -h
