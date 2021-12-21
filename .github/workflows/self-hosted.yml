@@ -12,6 +12,7 @@ jobs:
        - run: echo "Hello world"
        
        - name: Checkout Git repo manually
+         shell: bash
          run: |
            mkdir npm-cli
            cd npm-cli
