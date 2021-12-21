@@ -16,3 +16,14 @@ jobs:
            mkdir npm-cli
            cd npm-cli
            git clone https://github.com/npm/cli.git
+           
+       - uses: actions/setup-dotnet@v1
+         with:
+           dotnet-version: '5.x'
+       - run: dotnet version
+       
+
+       - uses: actions/setup-node@v2
+         with:
+           node-version: '14'
+       - run: npm version
