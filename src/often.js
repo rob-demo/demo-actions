@@ -30,8 +30,8 @@ module.exports = async ({github, context, owner, repo, workflow}) => {
 
         try {
             const response = await github.request(
-                "GET /repos/{owner}/{repo}/actions/runs",
-                {owner, repo}
+                "GET /repos/{owner}/{repo}/actions/workflows/{workflowId}/runs",
+                {owner, repo, workflow_id}
             )        
             console.log(`Response: ${JSON.stringify(response)}`)
         }
