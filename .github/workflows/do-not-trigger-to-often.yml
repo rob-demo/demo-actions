@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: |
-          echo "Running from ${{ github.workflow }}"
+          echo "Running from ${{ github.workflow }} with ${{ github.run_id }}"
           
       - uses: actions/github-script@v5.0.0
         with:
