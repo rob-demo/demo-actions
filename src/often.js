@@ -29,12 +29,12 @@ module.exports = async ({github, context, owner, repo, workflow, run_id}) => {
         // console.log(`Runs2: ${JSON.stringify(runs2)}`)
         let workflow_id
         try {
-            const response = await github.request(
+            const currentRun = await github.request(
                 "GET /repos/{owner}/{repo}/actions/runs/{run_id}",
                 {owner, repo, run_id}
             )        
-            console.log(`Run Response: ${JSON.stringify(response)}`)
-            workflow_id = response.data.workflow_id
+            console.log(`Run Response: ${JSON.stringify(currentRun)}`)
+            workflow_id = currentRun.data.workflow_id
             console.log(`Found workflow_id: ${workflow_id}`)
         }
         catch(err) { 
