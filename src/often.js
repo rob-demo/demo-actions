@@ -43,6 +43,7 @@ module.exports = async ({github, context, owner, repo, workflow, run_id}) => {
 
 
         try {
+            console.log(`Found workflow_id: ${workflow_id}`)
             const response = await github.request(
                 "GET /repos/{owner}/{repo}/actions/workflows/{workflow_id}/runs",
                 {owner, repo, workflow_id}
@@ -64,5 +65,5 @@ module.exports = async ({github, context, owner, repo, workflow, run_id}) => {
     }
 
     console.log(`The End`)
-
+    return null
   }
