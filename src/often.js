@@ -1,4 +1,4 @@
-module.exports = async ({github, context, owner, repo, workflow, run_id}) => {
+module.exports = async ({github, owner, repo, workflow, run_id}) => {
     
     console.log(`beginning`);
     console.log(`on workflow [${workflow}]`);
@@ -33,7 +33,7 @@ module.exports = async ({github, context, owner, repo, workflow, run_id}) => {
                 "GET /repos/{owner}/{repo}/actions/runs/{run_id}",
                 {owner, repo, run_id}
             )        
-            console.log(`Run Response: ${JSON.stringify(currentRun)}`)
+            //console.log(`Run Response: ${JSON.stringify(currentRun)}`)
             workflow_id = currentRun.data.workflow_id
             console.log(`Found workflow_id: ${workflow_id}`)
         }
@@ -48,7 +48,12 @@ module.exports = async ({github, context, owner, repo, workflow, run_id}) => {
                 "GET /repos/{owner}/{repo}/actions/workflows/{workflow_id}/runs",
                 {owner, repo, workflow_id}
             )        
-            console.log(`All runs Response: ${JSON.stringify(response)}`)
+            //console.log(`All runs Response: ${JSON.stringify(response)}`)
+
+            for (let i = 0; i < response.data.workflow_runs.length; i++) {
+                const run = response.data.workflow_runs[i]
+                console.log(`Run ${i}: ${JSON.stringify(run.run_number)}`)
+            }
         }
         catch(err) { 
             console.log(`err: ${err}`)
