@@ -1,9 +1,9 @@
-module.exports = async ({github, context, owner, repo, workflow}) => {
+module.exports = async ({github, context, owner, repo, workflow, run_id}) => {
     
     console.log(`beginning`);
     console.log(`on workflow [${workflow}]`);
     const workflowParts = workflow.split('/')
-    const workflow_id = workflowParts[workflowParts.length-1]
+    let workflow_id = workflowParts[workflowParts.length-1]
     
     console.log(`Running on repo [${owner}/${repo}] with workflow_id: [${workflow_id}]`)
           
@@ -27,13 +27,26 @@ module.exports = async ({github, context, owner, repo, workflow}) => {
         //     (response) => console.log(`Response: ${JSON.stringify(response)}`)
         // )        
         // console.log(`Runs2: ${JSON.stringify(runs2)}`)
+        let workflow_id
+        try {
+            const response = await github.request(
+                "GET /repos/{owner}/{repo}/actions/runs/{run_id}",
+                {owner, repo, run_id}
+            )        
+            console.log(`Run Response: ${JSON.stringify(response)}`)
+            workflow_id = response.data.workflow_id
+        }
+        catch(err) { 
+            console.log(`err: ${err}`)
+        }
+
 
         try {
             const response = await github.request(
                 "GET /repos/{owner}/{repo}/actions/workflows/{workflowId}/runs",
                 {owner, repo, workflow_id}
             )        
-            console.log(`Response: ${JSON.stringify(response)}`)
+            console.log(`All runs Response: ${JSON.stringify(response)}`)
         }
         catch(err) { 
             console.log(`err: ${err}`)

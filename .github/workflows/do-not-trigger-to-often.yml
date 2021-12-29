@@ -24,8 +24,9 @@ jobs:
             const owner = "rajbos"
             const repo = "demo-actions"
             const workflow = "${{ github.workflow }}"
+            const run_id = "${{ github.run_id }}"
 
             const script = require('./src/often.js')
-            const test = await script({github, context, owner, repo, workflow})
+            const test = await script({github, context, owner, repo, workflow, run_id})
             
             console.log("Done")            
