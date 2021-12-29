@@ -1,6 +1,8 @@
 name: Trigger NotOften
 on:
   push:
+    branches:
+      - often-test
     paths:
       - .github/workflows/do-not-trigger-to-often.yml
       - src/often.js

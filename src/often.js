@@ -1,6 +1,7 @@
 module.exports = async ({github, context, owner, repo, workflow}) => {
     
-    console.log(`beginning on workflow [${workflow}]`);
+    console.log(`beginning`);
+    console.log(`on workflow [${workflow}]`);
     const workflowParts = workflow.split('/')
     const workflow_id = workflowParts[workflowParts.length-1]
     
