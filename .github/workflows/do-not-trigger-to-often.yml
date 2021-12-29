@@ -1,3 +1,4 @@
+name: Trigger NotOften
 on:
   push:
     paths:
@@ -23,6 +24,6 @@ jobs:
             const workflow = "${{ github.workflow }}"
 
             const script = require('./src/often.js')
-            const test = await script({github, context, owner, repo, workflow})
+            const test = script({github, context, owner, repo, workflow})
             
             console.log("Done")            
