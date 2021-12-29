@@ -10,15 +10,15 @@ module.exports = async ({github, context, owner, repo, workflow}) => {
     try {
         console.log(`Start of the try call`)
 
-        const runs = await github.rest.actions.getWorkflow({
-            owner,
-            repo,
-            workflow_id
-        });
-        console.log(``)
-        console.log(`Runs: ${JSON.stringify(runs)}`)
-        console.log(``)
-        console.log(`Found [${runs.length}] workflow runs`)
+        // const runs = await github.rest.actions.getWorkflow({
+        //     owner,
+        //     repo,
+        //     workflow_id
+        // });
+        // console.log(``)
+        // console.log(`Runs: ${JSON.stringify(runs)}`)
+        // console.log(``)
+        // console.log(`Found [${runs.length}] workflow runs`)
         
         // const runs2 = await github.rest.actions.listWorkflowRunsForRepo({
         //         owner,
