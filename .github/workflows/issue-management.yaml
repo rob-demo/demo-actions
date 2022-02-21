@@ -24,7 +24,7 @@ jobs:
         uses: peter-murray/workflow-application-token-action@d93504a6ff913242c1c512d97ad1f8b302000af5
         with:
           application_id: ${{ secrets.GH_APPLICATION_ID }}
-          application_private_key: ${{ secrets.GH_APPLICATION_SECRET }}
+          application_private_key: ${{ secrets.GH_APPLICATION_PRIVATE_KEY }}
           
       - uses: monry/actions-add-issue-to-project@3e54e1f966203c08d6f15406f7dcf6f6ef2f7dd1
         id: add-issue-to-project
@@ -53,7 +53,7 @@ jobs:
         uses: peter-murray/workflow-application-token-action@d93504a6ff913242c1c512d97ad1f8b302000af5
         with:
           application_id: ${{ secrets.GH_APPLICATION_ID }}
-          application_private_key: ${{ secrets.GH_APPLICATION_SECRET }}
+          application_private_key: ${{ secrets.GH_APPLICATION_PRIVATE_KEY }}
       
       - name: Move issue to ${{ env.assigned }}
         uses: leonsteinhaeuser/project-beta-automations@283c1170b626cab442b68fafde34b64d088f32dd
@@ -73,7 +73,7 @@ jobs:
         uses: peter-murray/workflow-application-token-action@d93504a6ff913242c1c512d97ad1f8b302000af5
         with:
           application_id: ${{ secrets.GH_APPLICATION_ID }}
-          application_private_key: ${{ secrets.GH_APPLICATION_SECRET }}
+          application_private_key: ${{ secrets.GH_APPLICATION_PRIVATE_KEY }}
       
       - name: Move issue to ${{ env.done }}
         uses: leonsteinhaeuser/project-beta-automations@283c1170b626cab442b68fafde34b64d088f32dd
