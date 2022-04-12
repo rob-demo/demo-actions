@@ -1,0 +1,8 @@
+on:
+  workflow_dispatch:
+  
+jobs:
+  deploy-to-env:
+  runs-on: ubuntu-latest
+  steps: 
+    - echo "Hello world"
