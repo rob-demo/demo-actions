@@ -18,13 +18,14 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
 
+  # This is the first job
   init: 
     name: Friendly name for the UI
     runs-on: ubuntu-latest
     steps: 
       - run: echo Hello init
     
-  # This workflow contains a single job called "build"
+  # This is the second job
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
@@ -44,3 +45,5 @@ jobs:
         with:          
           # Version Spec of the version to use.  Examples: 12.x, 10.15.1, >=10.15.0
           node-version: 12.x
+
+      - run: node --version
