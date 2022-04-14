@@ -22,3 +22,6 @@ jobs:
              
        - run: echo "GITHUB_TOKEN from secret context = $ENV_GITHUB_TOKEN"
          name: Echo token in separate step showing that it is empty
+         
+       - run: echo "gh_token= $gh_token"
+         name: Test with gh_token
