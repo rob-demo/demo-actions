@@ -3,6 +3,8 @@ on:
   
 jobs:
   deploy-to-env:
-  runs-on: ubuntu-latest
-  steps: 
-    - echo "Hello world"
+    runs-on: ubuntu-latest
+    environment: DevTest
+    
+    steps: 
+      - run: echo "Hello world"
