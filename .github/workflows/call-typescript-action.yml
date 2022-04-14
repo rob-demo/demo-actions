@@ -5,4 +5,4 @@ jobs:
   job_1:
     runs-on: ubuntu-latest
     steps:
-      - uses: rob-demo/demo-typescript-action@v1
+      - uses: rob-demo/demo-typescript-action@main
