@@ -25,3 +25,7 @@ jobs:
          
        - run: echo "gh_token= $gh_token"
          name: Test with gh_token
+         
+       
+       - run: echo "gh_token= ${{ github.token }}"
+         name: Test with github.token
