@@ -2,9 +2,16 @@ on:
   workflow_dispatch:
   
 jobs:
-  deploy-to-env:
+  deploy-to-devtest:
     runs-on: ubuntu-latest
     environment: DevTest
+    
+    steps: 
+      - run: echo "Hello world"
+
+  deploy-to-prod:
+    runs-on: ubuntu-latest
+    environment: Production
     
     steps: 
       - run: echo "Hello world"
