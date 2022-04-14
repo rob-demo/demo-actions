@@ -1,3 +1,4 @@
+name: env-vars
 on:
   workflow_dispatch:
   
@@ -6,3 +7,10 @@ jobs:
      runs-on: ubuntu-latest
      steps:
        -  run: echo "GITHUB_API_URL= $GITHUB_API_URL" 
+          name: Echo url
+       
+       -  run: echo "GITHUB_TOKEN: $GITHUB_TOKEN"
+          name: Echo token from env. var
+       
+       -  run: echo "GITHUB_TOKEN from secret context: ${{ secrets.GITHUB_TOKEN }}"
+          name: Echo token from secret context
