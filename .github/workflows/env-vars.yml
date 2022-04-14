@@ -16,9 +16,9 @@ jobs:
           name: Echo token from secret context
 
        -  run: echo "GITHUB_TOKEN from secret context = $ENV_GITHUB_TOKEN"
-          name: Echo token from secret context
+          name: Echo token from secret context as env. variable
           env:
              ENV_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
              
        - run: echo "GITHUB_TOKEN from secret context = $ENV_GITHUB_TOKEN"
-         name: Echo token in separate step
+         name: Echo token in separate step showing that it is empty
