@@ -1,0 +1,17 @@
+on: 
+  push:
+    paths:
+    - .github/workflows/windows-docker-build.yml
+
+  workflow_dispatch:
+
+jobs:
+  build-windows-docker-image:
+    runs-on: windows-latest
+    steps:
+
+      - uses: actions/checkout@v2
+
+      - run: |
+          cd src
+          docker build -t windows-server-20222 -f Windows.Dockerfile .
