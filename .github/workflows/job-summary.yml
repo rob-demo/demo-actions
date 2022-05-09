@@ -11,10 +11,26 @@ jobs:
     steps:
     - name: Write to job summary
       run: |
+        Write-Host "demo job" >> $GITHUB_STEP_SUMMARY
         $PSVersionTable >> $GITHUB_STEP_SUMMARY
       shell: pwsh
       
     - run: |
          echo "" >> $GITHUB_STEP_SUMMARY
-         echo ‘### Hello world! :rocket:’ >> $GITHUB_STEP_SUMMARY
+         echo '### Hello world! :rocket:' >> $GITHUB_STEP_SUMMARY
         
+
+
+
+  demo-two:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Write to job summary 2
+      run: |
+        Write-Host "demo job2" >> $GITHUB_STEP_SUMMARY
+        $PSVersionTable >> $GITHUB_STEP_SUMMARY
+      shell: pwsh
+      
+    - run: |
+         echo "" >> $GITHUB_STEP_SUMMARY
+         echo '### Hello world! :rocket:' >> $GITHUB_STEP_SUMMARY
