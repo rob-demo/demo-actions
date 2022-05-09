@@ -11,8 +11,8 @@ jobs:
     steps:
     - name: Write to job summary
       run: |
-        Write-Host "demo job" >> $GITHUB_STEP_SUMMARY
-        $PSVersionTable >> $GITHUB_STEP_SUMMARY
+        Write-Host "demo job" >> $env.GITHUB_STEP_SUMMARY
+        $PSVersionTable >> $env.GITHUB_STEP_SUMMARY
       shell: pwsh
       
     - run: |
