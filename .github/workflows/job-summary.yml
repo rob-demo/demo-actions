@@ -12,6 +12,7 @@ jobs:
     - name: Write to job summary
       run: |
         Write-Host "env var GITHUB_STEP_SUMMARY= [$($env:GITHUB_STEP_SUMMARY)]"
+        Write-Host "GITHUB_WORKFLOW = [$($env:GITHUB_WORKFLOW)]" 
         Write-Host "demo job" >> $env.GITHUB_STEP_SUMMARY
         $PSVersionTable >> $env.GITHUB_STEP_SUMMARY
       shell: pwsh
