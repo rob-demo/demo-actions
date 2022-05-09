@@ -1,0 +1,20 @@
+on:
+  push:
+    paths:
+    - .github/workflows/job-summary.yml
+    
+  workflow_dispatch:
+  
+jobs:
+  demo:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Write to job summary
+      run: |
+        $PSVersionTable >> $GITHUB_STEP_SUMMARY
+      shell: pwsh
+      
+    - run: |
+         echo "" >> $GITHUB_STEP_SUMMARY
+         echo ‘### Hello world! :rocket:’ >> $GITHUB_STEP_SUMMARY
+        
