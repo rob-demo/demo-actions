@@ -28,4 +28,4 @@ jobs:
       run: |
          echo "GITHUB_STEP_SUMMARY = [$GITHUB_STEP_SUMMARY]"
          echo "" >> $GITHUB_STEP_SUMMARY
-         echo '![#power](https://www.youtube.com/watch?v=Z2B5ZihFnOc)' >> $GITHUB_STEP_SUMMARY
+         echo '![#power](https://giphy.com/embed/26uf3G9yrXSn4ChLG)' >> $GITHUB_STEP_SUMMARY
