@@ -11,31 +11,21 @@ jobs:
     steps:
     - name: Write to job summary
       run: |
-        Write-Host "env var GITHUB_STEP_SUMMARY= [$($env:GITHUB_STEP_SUMMARY)]"
-        Write-Host "GITHUB_WORKFLOW = [$($env:GITHUB_WORKFLOW)]" 
-        Write-Host "demo job" >> $env:GITHUB_STEP_SUMMARY
-        $PSVersionTable >> $env:GITHUB_STEP_SUMMARY
-      shell: pwsh
-      
-    - run: |
-         echo "GITHUB_STEP_SUMMARY2 = [$GITHUB_STEP_SUMMARY]"
+         echo "GITHUB_STEP_SUMMARY = [$GITHUB_STEP_SUMMARY]"
          echo "" >> $GITHUB_STEP_SUMMARY
          echo '### Hello world! :rocket:' >> $GITHUB_STEP_SUMMARY
     
-    - run: |
-         echo "GITHUB_STEP_SUMMARY3 = [$GITHUB_STEP_SUMMARY]"
+    - name: Write to job summary again
+      run: |
+         echo "GITHUB_STEP_SUMMARY2 = [$GITHUB_STEP_SUMMARY]"
          echo "" >> $GITHUB_STEP_SUMMARY
          echo '### Hello world! :smile:' >> $GITHUB_STEP_SUMMARY
 
   demo-two:
     runs-on: ubuntu-latest
     steps:
-    - name: Write to job summary 2
+    - name: Write to job summary
       run: |
-        Write-Host "demo job2" >> $GITHUB_STEP_SUMMARY
-        $PSVersionTable >> $GITHUB_STEP_SUMMARY
-      shell: pwsh
-      
-    - run: |
+         echo "GITHUB_STEP_SUMMARY = [$GITHUB_STEP_SUMMARY]"
          echo "" >> $GITHUB_STEP_SUMMARY
-         echo '### Hello world! :rocket:' >> $GITHUB_STEP_SUMMARY
+         echo '![#power](https://www.youtube.com/watch?v=Z2B5ZihFnOc)' >> $GITHUB_STEP_SUMMARY
