@@ -62,3 +62,10 @@ jobs:
           node-version: 12.x
 
       - run: node --version
+
+   # This is the third job
+  example:
+    runs-on: ubuntu-latest
+    steps:
+      - run: $PSVersionTable
+        shell: pwsh
