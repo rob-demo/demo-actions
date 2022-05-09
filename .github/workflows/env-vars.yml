@@ -2,30 +2,42 @@ name: env-vars
 on:
   workflow_dispatch:
   
+env:
+ MY_ENV_VAR: 123
+  
 jobs:
   test-env:
-     runs-on: ubuntu-latest
-     steps:
-       -  run: echo "GITHUB_API_URL= $GITHUB_API_URL" 
-          name: Echo url
-       
-       -  run: echo "GITHUB_TOKEN = $GITHUB_TOKEN"
-          name: Echo token from env. var
-       
-       -  run: echo "GITHUB_TOKEN from secret context = ${{ secrets.GITHUB_TOKEN }}"
-          name: Echo token from secret context
+   runs-on: ubuntu-latest
+   steps:
+     -  run: echo "GITHUB_API_URL= $GITHUB_API_URL" 
+        name: Echo url
 
-       -  run: echo "GITHUB_TOKEN from secret context = $ENV_GITHUB_TOKEN"
-          name: Echo token from secret context as env. variable
-          env:
-             ENV_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-             
-       - run: echo "GITHUB_TOKEN from secret context = $ENV_GITHUB_TOKEN"
-         name: Echo token in separate step showing that it is empty
+     -  run: echo "GITHUB_TOKEN = $GITHUB_TOKEN"
+        name: Echo token from env. var
+
+     -  run: echo "GITHUB_TOKEN from secret context = ${{ secrets.GITHUB_TOKEN }}"
+        name: Echo token from secret context
+
+     -  run: echo "GITHUB_TOKEN from secret context = $ENV_GITHUB_TOKEN"
+        name: Echo token from secret context as env. variable
+        env:
+           ENV_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+     - run: echo "GITHUB_TOKEN from secret context = $ENV_GITHUB_TOKEN"
+       name: Echo token in separate step showing that it is empty
+
+     - run: echo "gh_token= $gh_token"
+       name: Test with gh_token
+
+
+     - run: echo "gh_token= ${{ github.token }}"
+       name: Test with github.token
          
-       - run: echo "gh_token= $gh_token"
-         name: Test with gh_token
          
-       
-       - run: echo "gh_token= ${{ github.token }}"
-         name: Test with github.token
+  show-env-variables:
+    runs-on: ubuntu-latest
+    env:
+      MY_ENV_VAR2: 456
+    steps:
+      - run: echo $MY_ENV_VAR
+      - run: echo $MY_ENV_VAR2
