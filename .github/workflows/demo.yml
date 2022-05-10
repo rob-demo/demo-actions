@@ -69,3 +69,12 @@ jobs:
     steps:
       - run: $PSVersionTable
         shell: pwsh
+        
+      - name: Adding markdown
+        run: |
+           echo "This is the GITHUB_STEP_SUMMARY value: [$GITHUB_STEP_SUMMARY]"
+           echo ‘### Hello world! :rocket:’ >> $GITHUB_STEP_SUMMARY
+
+      - name: Adding markdown2
+        run: |
+           echo "This is the GITHUB_STEP_SUMMARY value2: [$GITHUB_STEP_SUMMARY]"
