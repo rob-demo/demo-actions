@@ -10,6 +10,7 @@ jobs:
     
     steps: 
       - run: echo "Hello world from DevTest"
+      - run: echo "My secret value = [${{ secrets.DEMO_SECRET }}]"
 
   deploy-to-prod:
     runs-on: ubuntu-latest
@@ -18,3 +19,4 @@ jobs:
     
     steps: 
       - run: echo "Hello world from Production"
+      - run: echo "My secret value = [${{ secrets.DEMO_SECRET }}]"
