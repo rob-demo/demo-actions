@@ -3,6 +3,9 @@ name: Environments Demo
 on:
   workflow_dispatch:
   
+env:
+  USERNAME: rajbos
+  
 jobs:
   deploy-to-devtest:
     runs-on: ubuntu-latest
@@ -10,7 +13,7 @@ jobs:
     
     steps: 
       - run: echo "Hello world from DevTest"
-      - run: echo "My secret value = [${{ secrets.DEMO_SECRET }}]"
+      - run: echo "My secret value = [${{ secrets.DEMO_SECRET }}] for user [$USERNAME]"
 
   deploy-to-prod:
     runs-on: ubuntu-latest
@@ -19,4 +22,4 @@ jobs:
     
     steps: 
       - run: echo "Hello world from Production"
-      - run: echo "My secret value = [${{ secrets.DEMO_SECRET }}]"
+      - run: echo "My secret value = [${{ secrets.DEMO_SECRET }}] for user [$USERNAME]"
