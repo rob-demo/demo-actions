@@ -7,11 +7,12 @@ jobs:
     environment: DevTest
     
     steps: 
-      - run: echo "Hello world"
+      - run: echo "Hello world from DevTest"
 
   deploy-to-prod:
     runs-on: ubuntu-latest
+    needs: deploy-to-devtest
     environment: Production
     
     steps: 
-      - run: echo "Hello world"
+      - run: echo "Hello world from Production"
