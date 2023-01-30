@@ -55,3 +55,25 @@ jobs:
       - shell: pwsh
         run: |
           Write-Host "Variable value: [$($env:demo_variable) ]"
+          
+  show-env-variables-working:
+    runs-on: ubuntu-latest
+    env:
+      MY_ENV_VAR2: 456
+    steps:
+      - run: echo $MY_ENV_VAR
+      - run: echo $MY_ENV_VAR2
+      # set new var with bash
+      - shell: bash
+        run: |
+          demo_variable="demo input string"
+          echo "demo_variable=$demo_variable" >> $GITHUB_OUTPUT
+          
+       # use new var with bash
+      - shell: bash
+        run: echo "value of demo_variable [$demo_variable]"
+       
+      # use newly created demo_variable
+      - shell: pwsh
+        run: |
+          Write-Host "Variable value: [$($env:demo_variable) ]"
