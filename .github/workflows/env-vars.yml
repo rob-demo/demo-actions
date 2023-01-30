@@ -67,7 +67,7 @@ jobs:
       - shell: bash
         run: |
           demo_variable="demo input string"
-          echo "demo_variable=$demo_variable" >> $GITHUB_OUTPUT
+          echo "demo_variable=$demo_variable" >> $GITHUB_ENV
           
        # use new var with bash
       - shell: bash
