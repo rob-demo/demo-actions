@@ -54,7 +54,7 @@ jobs:
       # use newly created demo_variable
       - shell: pwsh
         run: |
-          Write-Host "Variable value: [$($env:demo_variable) ]"
+          Write-Host "Variable value: [$($env:demo_variable)]"
           
   show-env-variables-working:
     runs-on: ubuntu-latest
@@ -76,4 +76,4 @@ jobs:
       # use newly created demo_variable
       - shell: pwsh
         run: |
-          Write-Host "Variable value: [$($env:demo_variable) ]"
+          Write-Host "Variable value: [$($env:demo_variable)]"
