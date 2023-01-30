@@ -1,7 +1,10 @@
 name: env-vars
 on:
   workflow_dispatch:
-  
+  push:
+    paths: 
+      - .github/workflows/env-vars.yml
+      
 env:
  MY_ENV_VAR: 123
   
@@ -43,6 +46,10 @@ jobs:
       # set new var with bash
       - shell: bash
         run: demo_variable="demo input string"
+      
+       # use new var with bash
+      - shell: bash
+        run: echo "value of demo_variable [$demo_variable]"
        
       # use newly created demo_variable
       - shell: pwsh
