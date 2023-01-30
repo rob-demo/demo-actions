@@ -29,7 +29,6 @@ jobs:
      - run: echo "gh_token= $gh_token"
        name: Test with gh_token
 
-
      - run: echo "gh_token= ${{ github.token }}"
        name: Test with github.token
          
@@ -41,3 +40,11 @@ jobs:
     steps:
       - run: echo $MY_ENV_VAR
       - run: echo $MY_ENV_VAR2
+      # set new var with bash
+      - shell: bash
+        run: demo_variable="demo input string"
+       
+      # use newly created demo_variable
+      - shell: pwsh
+        run: |
+          Write-Host "Variable value: [$($env:demo_variable) ]"
