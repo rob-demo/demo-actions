@@ -17,9 +17,12 @@ jobs:
         application_id: ${{ vars.GH_APPLICATION_ID }}
         application_private_key: ${{ secrets.GH_APPLICATION_KEY }}
         
-    - uses: actions/checkout@v3
-      with:
-        token: ${{ steps.get_workflow_token.outputs.token }}
-        repository: rob-demo/example-demo
+#     - uses: actions/checkout@v3
+#       with:
+#         token: ${{ steps.get_workflow_token.outputs.token }}
+#         repository: rob-demo/example-demo
+
+    - run: | 
+        git clone "https://x:${{ steps.get_workflow_token.outputs.token }}@github.com/rob-demo/example-demo.git"
      
   
