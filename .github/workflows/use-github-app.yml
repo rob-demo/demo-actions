@@ -1,0 +1,16 @@
+name: Use GitHub App
+on:
+  push:
+    paths:
+    - .github/workflows/use-github-app.yml
+
+jobs:
+  checkout-other-repo:
+    runs-on: k8s
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        token: ${{ GITHUB_TOKEN }}
+        repository: rob-demo/example-demo
+     
+  
