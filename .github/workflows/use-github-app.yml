@@ -1,5 +1,7 @@
 name: Use GitHub App
 on:
+  workflow_dispatch:
+  
   push:
     paths:
     - .github/workflows/use-github-app.yml
