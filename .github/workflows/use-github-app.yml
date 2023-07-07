@@ -10,9 +10,16 @@ jobs:
   checkout-other-repo:
     runs-on: ubuntu-latest
     steps:
+    - name: Get Token
+      id: get_workflow_token
+      uses: peter-murray/workflow-application-token-action@v2
+      with:
+        application_id: ${{ vars.GH_APPLICATION_ID }}
+        application_private_key: ${{ secrets.GH_APPLICATION_KEY }}
+        
     - uses: actions/checkout@v3
       with:
-        token: ${{ github.token }}
+        token: ${{ steps.get_workflow_token.outputs.token }}
         repository: rob-demo/example-demo
      
   
